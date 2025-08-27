@@ -13,8 +13,11 @@ export default function AppHeader() {
             <div className="sub-text">Smart Hiring</div>
           </div>
         </div>
+
         <div className="header-rhs">
-          <button className="btn btn-tertiary">10</button>
+          <button className="avatar-btn">
+            <i className="fa-solid fa-user"></i>
+          </button>
         </div>
       </div>
     </header>
