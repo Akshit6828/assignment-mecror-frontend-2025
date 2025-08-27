@@ -1,7 +1,7 @@
 .candidate-page {
   height: 100%;
   overflow: auto;
-  //   padding: 2px;
+  padding: 2px;
 
   .candidate-page-header {
     display: flex;
@@ -13,7 +13,16 @@
     background-color: var(--white);
 
     .header-lhs {
+      display: flex;
+      align-items: center;
+      gap: 4px;
       flex: 1;
+
+      .candidate-count {
+        margin-left: 1rem;
+        font-weight: 500;
+        color: var(--gray-700);
+      }
       .custom-search {
         max-width: none;
         width: 450px;

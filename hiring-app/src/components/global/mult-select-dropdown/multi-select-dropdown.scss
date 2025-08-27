@@ -1,0 +1,107 @@
+.multi-dropdown-container {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  min-width: 250px;
+  max-width: 350px;
+
+  .multi-dropdown-input {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid var(--grey-40);
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: text;
+
+    &:focus-within {
+      border-color: var(--primary);
+    }
+
+    .chips-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      flex: 1;
+
+      .chip {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: var(--primary-20);
+        color: var(--primary-90);
+        border-radius: 16px;
+        padding: 4px 8px;
+        font-size: 12px;
+
+        .chip-close {
+          cursor: pointer;
+          font-weight: bold;
+        }
+      }
+
+      .placeholder {
+        color: var(--grey-40);
+        font-size: 14px;
+      }
+
+      .search-input {
+        border: none;
+        outline: none;
+        flex: 1;
+        min-width: 80px;
+        font-size: 14px;
+        padding: 4px;
+      }
+    }
+
+    .dropdown-arrow {
+      margin-left: auto;
+      pointer-events: none;
+
+      &.arrow-up {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .options-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 0 0 4px 4px;
+    width: 100%;
+    background: var(--white);
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 12px 2px #cfc9c9;
+
+    .dropdown-item {
+      padding: 10px 12px;
+      font-size: 14px;
+      color: var(--grey-60);
+      cursor: pointer;
+
+      &:hover {
+        background: var(--grey-10);
+        color: var(--black);
+      }
+
+      &.active {
+        background: var(--primary-light);
+        color: var(--primary);
+        font-weight: 500;
+      }
+    }
+
+    .clear-button {
+      width: 100%;
+      padding: 8px;
+      background: none;
+      border: none;
+      color: var(--primary);
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+}
