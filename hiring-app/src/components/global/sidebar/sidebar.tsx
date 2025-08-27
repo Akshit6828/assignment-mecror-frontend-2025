@@ -41,7 +41,7 @@ export default function Sidebar({
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
 
-  // click outside to close
+  // Click outside to close
   useEffect(() => {
     function onClick(e: MouseEvent) {
       if (!open) return;
@@ -91,12 +91,6 @@ export default function Sidebar({
         </div>
 
         <div className="sidebar-body">{children}</div>
-
-        <div className="sidebar-footer">
-          <button onClick={onClose} className="sidebar-done-btn">
-            Done
-          </button>
-        </div>
       </aside>
     </div>
   );
