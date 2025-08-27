@@ -2,6 +2,8 @@
   height: 100%;
   overflow: auto;
   padding: 0px 2px;
+  width: 95%;
+  margin: 0 auto;
 
   .candidate-page-header {
     display: flex;
@@ -12,21 +14,23 @@
     top: 0;
     background-color: var(--white);
     z-index: 10;
-    padding: 0.5rem 0;
+    padding: 0.75rem 1rem;
     border-bottom: 1px solid var(--gray-100);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
     .header-lhs {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 8px;
       flex: 1;
 
       .candidate-count {
         margin-left: 1rem;
-        font-weight: 500;
+        font-weight: 600;
         color: var(--gray-700);
         white-space: nowrap;
       }
+
       .custom-search {
         max-width: none;
         width: 450px;
@@ -45,6 +49,7 @@
       .advance-filter {
         min-width: fit-content;
         white-space: nowrap;
+        font-weight: 500;
 
         @media (max-width: 768px) {
           font-size: 0.875rem;
@@ -56,7 +61,7 @@
 
   .candidate-list {
     display: grid;
-    grid-template-columns: 1fr; // 1 tile by default (mobile)
+    grid-template-columns: 1fr;
     gap: 1rem;
 
     &.no-candidates {
@@ -69,11 +74,23 @@
     }
 
     @media (min-width: 768px) {
-      grid-template-columns: repeat(3, 1fr); // 3 tiles on tablets & desktops
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .candidate-item-wrapper {
       position: relative;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+      &:hover {
+        transform: translateY(-3px);
+        border-color: var(--primary-color);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
     }
   }
 }
@@ -314,7 +331,7 @@
       &.btn-primary {
         background-color: var(--primary-color);
         color: var(--white);
-        border-color: var(--primary-color);
+        border: none;
 
         &:hover {
           background-color: var(--primary-dark);

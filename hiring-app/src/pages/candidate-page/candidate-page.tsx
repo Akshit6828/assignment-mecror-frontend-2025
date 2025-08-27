@@ -397,15 +397,17 @@ export default function CandidatePage() {
         width="400px"
       >
         <div className="advanced-filters-content">
-          <h3>Advanced Filters & Smart Ranking</h3>
+          <div className="top-siderbar">
+            <h3>Advanced Filters & Smart Ranking</h3>
 
-          <div className="input-group">
-            <button
-              className="btn btn-secondary clear-filters"
-              onClick={clearRankingFilters}
-            >
-              Clear All Filters
-            </button>
+            <div className="input-group">
+              <button
+                className="btn btn-secondary clear-filters"
+                onClick={clearRankingFilters}
+              >
+                Clear All Filters
+              </button>
+            </div>
           </div>
 
           <div className="ranking-criteria">
@@ -552,9 +554,6 @@ export default function CandidatePage() {
           <div className="sidebar-actions">
             <button className="btn btn-primary" onClick={onDoneClick}>
               Done
-            </button>
-            <button className="btn btn-secondary" onClick={clearRankingFilters}>
-              Clear
             </button>
           </div>
         </div>
