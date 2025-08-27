@@ -1,0 +1,50 @@
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  z-index: 999;
+  cursor: pointer;
+
+  .header-container {
+    background: linear-gradient(135deg, var(--primary), #cf7676);
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    justify-content: space-between;
+
+    .header-lhs {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+
+      .header-text {
+        color: var(--white);
+        font-size: 18px;
+        font-weight: 500;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.2;
+        .main-text {
+          font-weight: 700;
+        }
+        .sub-text {
+          opacity: 0.8;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .logo {
+      color: var(--white);
+      font-weight: 900;
+      font-size: larger;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    }
+  }
+}

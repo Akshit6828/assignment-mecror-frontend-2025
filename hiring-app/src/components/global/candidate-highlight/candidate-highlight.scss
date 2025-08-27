@@ -1,0 +1,46 @@
+.candidate-highlight {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 8px 0;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: system-ui, sans-serif;
+
+  &:hover {
+    background: #fafafa;
+  }
+
+  .ch-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ch-location {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .ch-degree,
+  .ch-roles,
+  .ch-salary {
+    font-size: 0.9rem;
+    margin: 4px 0;
+    color: #444;
+  }
+
+  .ch-skills {
+    margin-top: 6px;
+
+    .ch-skill {
+      display: inline-block;
+      background: #f4f6f8;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: 0.8rem;
+      margin-right: 4px;
+      color: #333;
+    }
+  }
+}

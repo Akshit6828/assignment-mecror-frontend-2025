@@ -1,0 +1,45 @@
+/* Base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
+  background: var(--white);
+}
+
+/* Primary */
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+}
+.btn-primary:hover {
+  background: var(--primary-90);
+}
+
+/* Secondary */
+.btn-secondary {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+  font-weight: 600;
+}
+.btn-secondary:hover {
+  background: var(--primary-20);
+}
+
+/* Tertiary */
+.btn-tertiary {
+  border: 1px solid var(--secondary-20);
+  color: var(--grey-80);
+  background: var(--white);
+}
+.btn-tertiary:hover {
+  background: var(--grey-10);
+}

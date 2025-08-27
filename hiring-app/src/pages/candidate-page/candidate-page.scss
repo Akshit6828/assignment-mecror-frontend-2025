@@ -1,0 +1,42 @@
+.candidate-page {
+  height: 100%;
+  overflow: auto;
+  //   padding: 2px;
+
+  .candidate-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+
+    .header-lhs {
+      flex: 1;
+      .custom-search {
+        max-width: none;
+        width: 450px;
+      }
+    }
+
+    .header-rhs {
+      display: flex;
+      gap: 1rem;
+
+      .advance-filter {
+        min-width: fit-content;
+      }
+    }
+  }
+
+  .candidate-list {
+    display: grid;
+    grid-template-columns: 1fr; // 1 tile by default (mobile)
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr); // 3 tiles on tablets & desktops
+    }
+  }
+}

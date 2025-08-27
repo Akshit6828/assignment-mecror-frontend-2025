@@ -1,0 +1,38 @@
+:root {
+  /* Neutral / Base */
+  --black: #000000;
+  --white: #ffffff;
+  --grey-80: #1a1a1a;
+  --grey-60: #4d4d4d;
+  --grey-40: #999999;
+  --grey-20: #cccccc;
+  --grey-10: #f2f2f2;
+  --white-smoke: #ccc;
+
+  /* Primary (Purple) */
+  --primary: #4f46e5; /* main */
+  --primary-90: #4338ca; /* darker hover */
+  --primary-70: #6366f1; /* lighter purple */
+  --primary-50: #a5b4fc; /* light tint */
+  --primary-20: #ede9fe; /* very light bg */
+  --primary-light: #f9f8ff; /* background subtle */
+
+  /* Secondary (Dark Gray / Neutral) */
+  --secondary: #2f333b; /* main dark gray */
+  --secondary-70: #374151; /* hover gray */
+  --secondary-50: #6b7280; /* medium gray */
+  --secondary-20: #e5e7eb; /* light outline */
+  --secondary-light: #f9fafb; /* background subtle */
+
+  /* Accent / States */
+  --success: #16a34a;
+  --warning: #facc15;
+  --error: #dc2626;
+
+  /* Shadows */
+  --box-shadow-red: 0 0 4px rgba(228, 28, 35, 0.3);
+
+  /* Filters */
+  --filter-primary: brightness(0) saturate(100%) invert(55%) sepia(93%)
+    saturate(7489%) hue-rotate(240deg) brightness(93%) contrast(93%);
+}
