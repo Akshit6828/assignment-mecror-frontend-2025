@@ -115,28 +115,23 @@ export default function CandidatePage() {
 
   const handleSkillsSubmit = () => {
     const parsedSkills = parseCommaSeparatedInput(skillsInput);
-    console.log("Skills input:", skillsInput);
-    console.log("Parsed skills:", parsedSkills);
+
     updateRankingQuery("skills", parsedSkills);
   };
 
   const handleRolesSubmit = () => {
     const parsedRoles = parseCommaSeparatedInput(rolesInput);
-    console.log("Roles input:", rolesInput);
-    console.log("Parsed roles:", parsedRoles);
+
     updateRankingQuery("targetRoles", parsedRoles);
   };
 
   const handleLocationsSubmit = () => {
     const parsedLocations = parseCommaSeparatedInput(locationsInput);
-    console.log("Locations input:", locationsInput);
-    console.log("Parsed locations:", parsedLocations);
     updateRankingQuery("preferredLocations", parsedLocations);
   };
 
   // --- Clear All: also resets applied state instantly (clean UX)
   const clearRankingFilters = () => {
-    console.log("Clearing all filters");
     // reset live editor
     setRankingQuery(defaultRankingQuery);
     setRankingWeights(defaultRankingWeights);
@@ -166,31 +161,9 @@ export default function CandidatePage() {
     0
   );
 
-  // Debug function
-  const debugRankingState = () => {
-    console.log("=== DEBUG RANKING STATE ===");
-    console.log("Applied Ranking Query:", appliedRankingQuery);
-    console.log("Applied Show Top Results:", appliedShowTopResults);
-    console.log(
-      "Has Ranking Criteria:",
-      hasRankingCriteria(appliedRankingQuery)
-    );
-    console.log("Processed Candidates Length:", processedCandidates.length);
-    console.log(
-      "First 3 candidates:",
-      processedCandidates.slice(0, 3).map((c) => ({
-        name: c.name,
-        rankingScore: c.rankingScore,
-        skills: c.skills,
-      }))
-    );
-  };
-
   // --- Main filtering/ranking logic (driven by committed, "applied" states only)
   const processedCandidates: CandidateWithRanking[] = useMemo(() => {
-    console.log("Processing candidates...");
     let filtered: CandidateWithRanking[] = [...candidates];
-    console.log("Initial candidate count:", filtered.length);
 
     // Apply basic search filter
     if (searchTerm) {
@@ -199,7 +172,6 @@ export default function CandidatePage() {
           c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
           c.email.toLowerCase().includes(searchTerm.toLowerCase())
       );
-      console.log("After search filter:", filtered.length);
     }
 
     // Apply work availability filter
@@ -207,14 +179,10 @@ export default function CandidatePage() {
       filtered = filtered.filter((c) =>
         (c.work_availability || []).includes(selectedWorkAvailability.value)
       );
-      console.log("After work availability filter:", filtered.length);
     }
 
     // Apply ranking if user supplied ranking criteria
     if (hasRankingCriteria(appliedRankingQuery)) {
-      console.log("Applying ranking with criteria:", appliedRankingQuery);
-      console.log("Applied ranking weights:", appliedRankingWeights);
-
       try {
         // Always rank all candidates to get proper ordering
         const rankedResults = rankCandidates(
@@ -228,38 +196,23 @@ export default function CandidatePage() {
           }
         ) as CandidateWithRanking[];
 
-        console.log("Ranked results count:", rankedResults.length);
-        console.log(
-          "Top 5 ranked scores:",
-          rankedResults.slice(0, 5).map((c) => ({
-            name: c.name,
-            score: c.rankingScore,
-            skills: c.skills,
-          }))
-        );
-
         filtered = rankedResults;
 
         // Then apply Top N limitation ONLY if user specified a number > 0
         if (appliedShowTopResults > 0) {
-          console.log(`Limiting to top ${appliedShowTopResults} results`);
           filtered = filtered.slice(0, appliedShowTopResults);
-          console.log("After top N limitation:", filtered.length);
         }
       } catch (error) {
         console.error("Error in ranking candidates:", error);
         // Fallback to original filtered list if ranking fails
       }
     } else {
-      console.log("No ranking criteria applied");
       // No ranking criteria - show all results in original order
       if (appliedShowTopResults > 0) {
         filtered = filtered.slice(0, appliedShowTopResults);
-        console.log("Applied top N without ranking:", filtered.length);
       }
     }
 
-    console.log("Final processed candidates count:", filtered.length);
     return filtered;
   }, [
     searchTerm,
@@ -293,20 +246,10 @@ export default function CandidatePage() {
 
   // --- Only "Done" applies the current sidebar filter/ranking settings
   const onDoneClick = () => {
-    console.log("Done clicked - applying filters");
-    console.log("Current rankingQuery:", rankingQuery);
-    console.log("Current showTopResults:", showTopResults);
-    console.log("Current rankingWeights:", rankingWeights);
-
     setAppliedRankingQuery(rankingQuery);
     setAppliedRankingWeights(rankingWeights);
     setAppliedShowTopResults(showTopResults);
     setOpenSidebar(false);
-
-    // Add a small delay to let state update, then debug
-    setTimeout(() => {
-      debugRankingState();
-    }, 100);
   };
 
   // --- UI
