@@ -1,69 +1,80 @@
-# React + TypeScript + Vite
+# Hiring App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+An intelligent hiring assistant app that analyzes candidate submissions to help build a diverse, well-balanced team. This app provides data-driven justifications for candidate selections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Candidate submission analysis
+- Team diversity assessment
+- Data-driven selection justifications
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technologies Used
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- React Router
+- Recharts
+- Sass
+- TypeScript
+- Vite
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1.  Clone the repository:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+    ```bash
+    git clone <repository-url>
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2.  Navigate to the project directory:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+    ```bash
+    cd hiring-app
+    ```
+
+3.  Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+## Development
+
+1.  Start the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+2.  Open your browser and navigate to the address provided in the console (usually `http://localhost:5173`).
+
+## Building
+
+1.  Build the application:
+
+    ```bash
+    npm run build
+    ```
+
+    This will create a `dist` directory containing the production-ready build.
+
+## Preview
+
+1.  Preview the production build locally:
+
+    ```bash
+    npm run preview
+    ```
+
+## Configuration
+
+The application configuration is located in `public/config/environment.json`.
+
+```json
+{
+  "App_Name": "Mercor-Hiring-App",
+  "App_Description": "An intelligent hiring assistant app that analyzes candidate submissions to help build a diverse, well-balanced team of five with clear, data-driven justifications for selections",
+  "App_Version": "1.0.0"
+}
 ```
