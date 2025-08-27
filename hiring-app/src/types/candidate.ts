@@ -39,4 +39,5 @@ interface Props {
   candidateInfo: CandidateInfoType;
 }
 
+
 export type { CandidateInfoType, Props };
