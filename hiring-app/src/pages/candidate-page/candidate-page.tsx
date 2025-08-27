@@ -271,7 +271,13 @@ export default function CandidatePage() {
 
   // Fixed candidate count display
   const getCandidateCountDisplay = () => {
-    const baseCount = `${processedCandidates.length} candidates`;
+    // Only return top N if limited, else all
+    const visibleCandidates =
+      appliedShowTopResults > 0
+        ? processedCandidates.slice(0, appliedShowTopResults)
+        : processedCandidates;
+
+    const baseCount = `${visibleCandidates.length} candidates`;
     const isRanked = hasRankingCriteria(appliedRankingQuery);
     const isLimited = appliedShowTopResults > 0;
 
@@ -393,12 +399,14 @@ export default function CandidatePage() {
       <Sidebar
         open={openSidebar}
         onClose={onDoneClick}
-        position="right"
-        width="400px"
+        position="left"
+        width="600px"
       >
         <div className="advanced-filters-content">
           <div className="top-siderbar">
-            <h3>Advanced Filters & Smart Ranking</h3>
+            <h3 className="top-siderbar-title">
+              Advanced Filters & Smart Ranking
+            </h3>
 
             <div className="input-group">
               <button
@@ -411,7 +419,7 @@ export default function CandidatePage() {
           </div>
 
           <div className="ranking-criteria">
-            <h4>Search Criteria</h4>
+            <h4 className="ranking-criteria-title">Search Criteria</h4>
             <div className="input-group">
               <label>Skills (comma-separated)</label>
               <input
@@ -503,7 +511,9 @@ export default function CandidatePage() {
           </div>
 
           <div className="ranking-weights">
-            <h4>Ranking Weights (Total: {totalWeight}%)</h4>
+            <h4 className="ranking-criteria-title">
+              Ranking Weights (Total: {totalWeight}%)
+            </h4>
             {Object.entries(rankingWeights).map(([key, value]) => (
               <div key={key} className="weight-input">
                 <label>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
@@ -537,6 +547,7 @@ export default function CandidatePage() {
               min={1}
               max={100}
               placeholder="Enter number of top results"
+              style={{ width: "250px", marginLeft: "10px" }}
             />
             {showTopResults > 0 && (
               <div className="applied-values">

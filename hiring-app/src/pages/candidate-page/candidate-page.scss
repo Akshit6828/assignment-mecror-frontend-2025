@@ -97,7 +97,7 @@
 
 // Enhanced sidebar CSS
 .advanced-filters-content {
-  padding: 1.5rem;
+  padding: 0px 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -107,7 +107,13 @@
   overflow-y: auto;
   background-color: var(--white);
 
-  h3 {
+  .top-siderbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--white);
+  }
+
+  .top-siderbar-title {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -120,7 +126,7 @@
     z-index: 1;
   }
 
-  h4 {
+  .ranking-criteria-title {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
@@ -128,6 +134,7 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: var(--primary);
 
     &::before {
       content: "";
@@ -146,7 +153,6 @@
     padding: 1.25rem;
     border-radius: 12px;
     border: 1px solid var(--gray-200);
-
     .input-group {
       display: flex;
       flex-direction: column;
@@ -157,37 +163,6 @@
         font-size: 0.95rem;
         color: var(--gray-800);
         margin-bottom: 0.25rem;
-      }
-
-      input {
-        padding: 0.75rem 1rem;
-        border: 2px solid var(--gray-300);
-        border-radius: 8px;
-        font-size: 0.95rem;
-        transition: all 0.2s ease;
-        background-color: var(--white);
-
-        &:focus {
-          outline: none;
-          border-color: var(--primary-color);
-          box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-          transform: translateY(-1px);
-        }
-
-        &::placeholder {
-          color: var(--gray-500);
-        }
-      }
-
-      .applied-values {
-        background-color: var(--primary-light);
-        color: var(--primary-dark);
-        padding: 0.5rem 0.75rem;
-        border-radius: 6px;
-        font-size: 0.85rem;
-        font-weight: 500;
-        border-left: 3px solid var(--primary-color);
-        margin-top: 0.25rem;
       }
 
       .range-inputs {
@@ -295,11 +270,38 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+  }
 
-    &::before {
-      content: "⚠️";
-      font-size: 1.1rem;
+  input {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--gray-300);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background-color: var(--white);
+    border: 1px solid var(--primary-20);
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-50);
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+      transform: translateY(-1px);
     }
+
+    &::placeholder {
+      color: var(--grey-20);
+    }
+  }
+
+  .applied-values {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-left: 3px solid var(--primary-color);
+    margin-top: 0.5rem;
   }
 
   .sidebar-actions {
@@ -329,10 +331,6 @@
       justify-content: center;
 
       &.btn-primary {
-        background-color: var(--primary-color);
-        color: var(--white);
-        border: none;
-
         &:hover {
           background-color: var(--primary-dark);
           transform: translateY(-2px);
